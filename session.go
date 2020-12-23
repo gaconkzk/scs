@@ -236,7 +236,9 @@ func (bw *bufferedResponseWriter) Push(target string, opts *http.PushOptions) er
 }
 
 func (bw *bufferedResponseWriter) Flush() {
-	if flusher, ok := bw.ResponseWriter.(http.Flusher); ok {
-		flusher.Flush()
-	}
+	bw.ResponseWriter.(http.Flusher).Flush()
+}
+
+func (bw *bufferedResponseWriter) CloseNotify() <-chan bool {
+	return bw.ResponseWriter.(http.CloseNotifier).CloseNotify()
 }
