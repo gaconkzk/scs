@@ -1,6 +1,6 @@
 # badger
 
-A [Badger](https://github.com/dgraph-io/badger)-based session store for [SCS](https://github.com/alexedwards/scs).
+A [Badger](https://github.com/dgraph-io/badger)-based session store for [SCS](https://github.com/gaconkzk/scs).
 
 ## Example
 
@@ -13,8 +13,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/alexedwards/scs/v2"
-	"github.com/alexedwards/scs/badgerstore"
+	"github.com/gaconkzk/scs/v2"
+	"github.com/gaconkzk/scs/badgerstore"
 	"github.com/dgraph-io/badger"
 )
 

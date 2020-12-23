@@ -29,8 +29,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/alexedwards/scs/v2"
-	"github.com/alexedwards/scs/postgresstore"
+	"github.com/gaconkzk/scs/v2"
+	"github.com/gaconkzk/scs/postgresstore"
 
 	_ "github.com/lib/pq"
 )

@@ -29,8 +29,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/alexedwards/scs/v2"
-	"github.com/alexedwards/scs/mysqlstore"
+	"github.com/gaconkzk/scs/v2"
+	"github.com/gaconkzk/scs/mysqlstore"
 
 	_ "github.com/go-sql-driver/mysql"
 )
