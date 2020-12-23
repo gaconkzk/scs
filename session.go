@@ -156,7 +156,7 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 				Path:     s.Cookie.Path,
 				Domain:   s.Cookie.Domain,
 				Secure:   s.Cookie.Secure,
-				HTTPOnly: s.Cookie.HTTPOnly,
+				HttpOnly: s.Cookie.HTTPOnly,
 				SameSite: s.Cookie.SameSite,
 			}
 
