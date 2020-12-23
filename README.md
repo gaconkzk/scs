@@ -86,7 +86,7 @@ func getHandler(w http.ResponseWriter, r *http.Request) {
 $ curl -i --cookie-jar cj --cookie cj localhost:4000/put
 HTTP/1.1 200 OK
 Cache-Control: no-cache="Set-Cookie"
-Set-Cookie: session=lHqcPNiQp_5diPxumzOklsSdE-MJ7zyU6kjch1Ee0UM; Path=/; Expires=Sat, 27 Apr 2019 10:28:20 GMT; Max-Age=86400; HttpOnly; SameSite=Lax
+Set-Cookie: session=lHqcPNiQp_5diPxumzOklsSdE-MJ7zyU6kjch1Ee0UM; Path=/; Expires=Sat, 27 Apr 2019 10:28:20 GMT; Max-Age=86400; HTTPOnly; SameSite=Lax
 Vary: Cookie
 Date: Fri, 26 Apr 2019 10:28:19 GMT
 Content-Length: 0
@@ -110,7 +110,7 @@ sessionManager.Lifetime = 3 * time.Hour
 sessionManager.IdleTimeout = 20 * time.Minute
 sessionManager.Cookie.Name = "session_id"
 sessionManager.Cookie.Domain = "example.com"
-sessionManager.Cookie.HttpOnly = true
+sessionManager.Cookie.HTTPOnly = true
 sessionManager.Cookie.Path = "/example/"
 sessionManager.Cookie.Persist = true
 sessionManager.Cookie.SameSite = http.SameSiteStrictMode

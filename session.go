@@ -11,7 +11,7 @@ import (
 	"github.com/gaconkzk/scs/v2/memstore"
 )
 
-// Deprecated: Session is a backwards-compatible alias for SessionManager.
+// Session Deprecated: Session is a backwards-compatible alias for SessionManager.
 type Session = SessionManager
 
 // SessionManager holds the configuration settings for your sessions.
@@ -65,9 +65,9 @@ type SessionCookie struct {
 	// it will be set to the domain name that the cookie was issued from.
 	Domain string
 
-	// HttpOnly sets the 'HttpOnly' attribute on the session cookie. The
+	// HTTPOnly sets the 'HTTPOnly' attribute on the session cookie. The
 	// default value is true.
-	HttpOnly bool
+	HTTPOnly bool
 
 	// Path sets the 'Path' attribute on the session cookie. The default value
 	// is "/". Passing the empty string "" will result in it being set to the
@@ -109,7 +109,7 @@ func New() *SessionManager {
 		Cookie: SessionCookie{
 			Name:     "session",
 			Domain:   "",
-			HttpOnly: true,
+			HTTPOnly: true,
 			Path:     "/",
 			Persist:  true,
 			Secure:   false,
@@ -119,7 +119,7 @@ func New() *SessionManager {
 	return s
 }
 
-// Deprecated: NewSession is a backwards-compatible alias for New. Use the New
+// NewSession Deprecated:  is a backwards-compatible alias for New. Use the New
 // function instead.
 func NewSession() *SessionManager {
 	return New()
@@ -156,7 +156,7 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 				Path:     s.Cookie.Path,
 				Domain:   s.Cookie.Domain,
 				Secure:   s.Cookie.Secure,
-				HttpOnly: s.Cookie.HttpOnly,
+				HTTPOnly: s.Cookie.HTTPOnly,
 				SameSite: s.Cookie.SameSite,
 			}
 
