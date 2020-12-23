@@ -235,10 +235,8 @@ func (bw *bufferedResponseWriter) Push(target string, opts *http.PushOptions) er
 	return http.ErrNotSupported
 }
 
-func (bw *bufferedResponseWriter) Flush() error {
+func (bw *bufferedResponseWriter) Flush() {
 	if flusher, ok := bw.ResponseWriter.(http.Flusher); ok {
 		flusher.Flush()
-		return nil
 	}
-	return http.ErrNotSupported
 }
