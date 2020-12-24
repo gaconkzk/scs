@@ -236,6 +236,8 @@ func (bw *bufferedResponseWriter) Push(target string, opts *http.PushOptions) er
 }
 
 func (bw *bufferedResponseWriter) Flush() {
+	// Take all from buf and flush
+	bw.ResponseWriter.Write(bw.buf.Bytes())
 	bw.ResponseWriter.(http.Flusher).Flush()
 }
 

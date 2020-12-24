@@ -5,7 +5,7 @@
 [![Go report card](https://goreportcard.com/badge/github.com/alexedwards/scs)](https://goreportcard.com/report/github.com/alexedwards/scs)
 [![Test coverage](http://gocover.io/_badge/github.com/alexedwards/scs)](https://gocover.io/github.com/alexedwards/scs)
 
-
+>Notes: I forked this and change module name, because I need support Flusher in the private bufferedResponseWriter.
 ## Features
 
 * Automatic loading and saving of session data via middleware.
