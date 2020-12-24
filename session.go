@@ -238,6 +238,8 @@ func (bw *bufferedResponseWriter) Push(target string, opts *http.PushOptions) er
 func (bw *bufferedResponseWriter) Flush() {
 	// Take all from buf and flush
 	bw.ResponseWriter.Write(bw.buf.Bytes())
+	// Clear?? is this work, I need test more
+	bw.buf.Reset()
 	bw.ResponseWriter.(http.Flusher).Flush()
 }
 
