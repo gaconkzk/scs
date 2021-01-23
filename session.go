@@ -154,10 +154,12 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 			responseCookie := &http.Cookie{
 				Name:     s.Cookie.Name,
 				Path:     s.Cookie.Path,
-				Domain:   s.Cookie.Domain,
 				Secure:   s.Cookie.Secure,
 				HttpOnly: s.Cookie.HTTPOnly,
 				SameSite: s.Cookie.SameSite,
+			}
+			if s.Cookie.Domain != "" {
+				responseCookie.Domain = s.Cookie.Domain
 			}
 
 			switch s.Status(ctx) {
