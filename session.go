@@ -135,7 +135,10 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 		if err == nil {
 			token = cookie.Value
 		} else {
-			token = r.URL.Query().Get(s.Cookie.Name)
+			cname := r.URL.Query().Get(s.Cookie.Name)
+			if len(cname) > 0 {
+				token = cname
+			}
 		}
 
 		ctx, err := s.Load(r.Context(), token)
