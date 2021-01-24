@@ -134,11 +134,6 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 		cookie, err := r.Cookie(s.Cookie.Name)
 		if err == nil {
 			token = cookie.Value
-		} else {
-			cname := r.URL.Query().Get(s.Cookie.Name)
-			if len(cname) > 0 {
-				token = cname
-			}
 		}
 
 		ctx, err := s.Load(r.Context(), token)
@@ -187,8 +182,6 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 			}
 
 			w.Header().Add("Set-Cookie", responseCookie.String())
-			// working around for fking cors/https/set-cookie in chrome
-			w.Header().Add("session", responseCookie.String())
 			addHeaderIfMissing(w, "Cache-Control", `no-cache="Set-Cookie"`)
 			addHeaderIfMissing(w, "Vary", "Cookie")
 		}
