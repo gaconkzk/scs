@@ -142,9 +142,9 @@ func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler {
 			return
 		}
 
-		log.Printf("o %s", r.URL.String())
+		log.Printf("o %s %v", r.URL.String(), r.URL.Query())
 		sr := r.WithContext(ctx)
-		log.Printf("n %s", sr.URL.String())
+		log.Printf("n %s %v", sr.URL.String(), sr.URL.Query())
 		bw := &bufferedResponseWriter{ResponseWriter: w}
 		next.ServeHTTP(bw, sr)
 
